@@ -25,8 +25,8 @@
     document.getElementById("server").innerHTML = Math.round(Math.random()*15);
     $('#input').cssConsole({
       	onEnter: function() {
-      	  $('#tp').append($('<p>'+$('#input').text()+'</p>'));
-      	  $('#input').text('');
+      	  $('#tp').append($('<p>'+$('.cssConsoleInput').text()+'</p>'));
+      	  $('.cssConsoleInput').text('');
       	}
     });
   </script>
