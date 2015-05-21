@@ -24,17 +24,31 @@
   <script type='text/javascript'>
     var srvid = Math.round(Math.random()*15);
     document.getElementById("server").innerHTML = srvid;
-    $('#input').cssConsole({
-      	onEnter: function() {
-      	  $('#tp').append($('<p>anonymous@scp'+srvid+'-server:~$ '+$('.cssConsoleDisplay').text()+'</p>'));
-      	  $('#input').cssConsole('reset');
-      	}
-    });
- window.setInterval(function() {
+$('#input').cssConsole({
+	inputName:'console',
+	charLimit: 60,
+	onEnter: function(){
+		addLine(username+"@scp-"+srvid+"-server:~$ "+$('#input').find('input').val());
+		execCommand($('#input').find('input').val());
+		$('#input').cssConsole('reset');	
+	}
+});
+var lineLimit = 28;
+var focus;
+
+focus = window.setInterval(function() {
 	if(!$('#input').find('input').is(":focus")){
 		$('#input').find('input').focus();
 	}
 }, 100);
+function addLine(input, style, color) {
+		if($('.console div').length==lineLimit) {
+			$('.console div').eq(0).remove();
+		}
+		style = typeof style !== 'undefined' ? style : 'line';
+		color = typeof color !== 'undefined' ? color : 'white';
+		$('.console').append('<div class="'+style+' '+color+'">'+input+'</div>');
+}
   </script>
 </html>
   
