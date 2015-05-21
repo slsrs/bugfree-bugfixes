@@ -14,11 +14,13 @@
     <div class='ee0'>
       <p>SCP.network server #<span id="server">1</span></p>
       <p>Please provide your credentials (username:password)</p>
-      <span id='nls'>
-        <span id='tp'></span>
-        
-      </span>
-      <p id='input'></p>
+                <div class="console">
+			<div class="line white">Username:</div>
+		</div>
+		<div class="bottom">
+			<div class="label">></div>
+			<div id="input"></div>
+                 </div>
     </div>
   </body>
   <script type='text/javascript'>
@@ -49,6 +51,39 @@ function addLine(input, style, color) {
 		color = typeof color !== 'undefined' ? color : 'white';
 		$('.console').append('<div class="'+style+' '+color+'">'+input+'</div>');
 }
+function execCommand(command){
+    if ( commands[command] ) {
+      return commands[command]();
+    } else {
+      addLine("Command '" + command + "' was not found.");
+    }   
+}
+
+var commands = {
+	help: function (){
+		addLine("Available command list:");
+		addLine("dir", 'margin');
+		addLine("help", 'margin');
+		addLine("ps", 'margin');
+	},
+	dir: function(){
+		addLine(".");
+		addLine("..");
+		addLine("Applications", 'margin', 'blue');
+		addLine("Documents", 'margin', 'blue');
+		addLine("Downloads", 'margin', 'blue');
+		addLine("Movies", 'margin', 'blue');
+		addLine("Music", 'margin', 'blue');
+		addLine("System", 'margin', 'blue');		
+	},
+	ps: function() {
+		addLine("Running processes:");
+		addLine("name: browser pid:8876", 'margin');
+		addLine("name: movie player pid:3213", 'margin');
+		addLine("name: system pid:0012", 'margin');
+	}
+}
+
   </script>
 </html>
   
