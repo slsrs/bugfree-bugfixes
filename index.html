@@ -13,13 +13,23 @@
   <body>
     <div class='ee0'>
       <p>SCP.network server #<span id="server">1</span></p>
-      <p>Please provide your credentials</p>
-      <p id='input'></p>
+      <p>Please provide your credentials (username:password)</p>
+      <span id='nls'>
+        <span id='tp'></span>
+        
+      </span>
+      <p id='input'>username: </p>
     </div>
   </body>
   <script type='text/javascript'>
     document.getElementById("server").innerHTML = Math.round(Math.random()*15);
-    $('#input').cssConsole();
+    $('#input').cssConsole({
+      	onEnter: function() {
+      	  $('#tp').append('<p>'.$('#input').text());
+      	  $('#input').text('');
+      	}
+    });
+    }
   </script>
 </html>
   
