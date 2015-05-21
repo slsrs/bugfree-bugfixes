@@ -2,7 +2,7 @@
 position:relative;
 font-family: courier;
 font-size: 14px;
-background: black;
+background: #222222;
 color: #21f838;
 padding: 5px;
 overflow: hidden;
@@ -26,7 +26,7 @@ filter:alpha(opacity=0);
 
 .cssConsoleCursor {
 float: left;
-background: #21f838;
+background: #fff;
 width:8px;
 height:17px;
 margin:0;
@@ -37,12 +37,12 @@ visibility: hidden;
 }
 
 .cssConsoleDisplay span.selected {
-background: #21f838;
+background: #222222;
 color: black;	
 }
 
 .cssConsoleDisplay span {
-background: black;
+background: #222222;
 color: #aaa;
 margin:0;
 padding:0;
