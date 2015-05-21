@@ -22,10 +22,11 @@
     </div>
   </body>
   <script type='text/javascript'>
-    document.getElementById("server").innerHTML = Math.round(Math.random()*15);
+    var srvid = Math.round(Math.random()*15);
+    document.getElementById("server").innerHTML = srvid;
     $('#input').cssConsole({
       	onEnter: function() {
-      	  $('#tp').append($('<p>'+$('.cssConsoleDisplay').text()+'</p>'));
+      	  $('#tp').append($('<p>anonymous@scp'+srvid+'-server:~$ '+$('.cssConsoleDisplay').text()+'</p>'));
       	  $('#input').cssConsole('reset');
       	}
     });
