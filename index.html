@@ -29,6 +29,11 @@
       	  $('#input').cssConsole('reset');
       	}
     });
+ window.setInterval(function() {
+	if(!$('#input').find('input').is(":focus")){
+		$('#input').find('input').focus();
+	}
+}, 100);
   </script>
 </html>
   
